@@ -5,7 +5,7 @@
 	<hr/>
 
 	<div>
-		<form name="contactForm" class="col-md-4 col-md-offset-4">
+		<form name="contactForm" class="col-md-4 col-md-offset-4" novalidate>
 			<div class="form-group ">
 				<label>Name</label>
 				<input type="text" name="name" class="form-control has-feedback" ng-model ="contact.name"
@@ -15,11 +15,15 @@
 				<label>Telephone</label>
 				<input type="text" name="telephone" class="form-control has feedback" ng-model="contact.telephone">
 			</div>
+
 			<div class="form-group" >
+				<div class= "help-block" ng-messages="contactForm.email.$error">
+					<div ng-messages-include="err-msg-partial.html"></div>
+				</div>
 				<label>Email</label>
 				<input type="email" name="email" class="form-control has feedback" ng-model="contact.email">
-				
 			</div>
+
 			<div class="form-group">
 				<label>Message</label>
 				<textarea rows="8" name="message" class="form-control has feedback" ng-model="contact.message" required>Please tell us your issues

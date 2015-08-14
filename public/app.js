@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ui.router'] );
+var myApp = angular.module('myApp', ['ui.router', 'ngMessages'] );
 
 myApp.controller('mainController', function($scope){
 	
