@@ -1,0 +1,13 @@
+<div class="col-sm-3 recentJobs">
+	<h1 class="jobSearchTitle">Recent Jobs</h1>
+	<input type="text" placeholder="search">
+	<ul class="list-unstyled">
+		<li ng-repeat="job in jobs">
+			<div>
+				<h5>{{job.title}}<h5>
+				<h6>{{job.location}}<h6>
+			</div>
+		</li>
+
+	</ul>
+<div>
