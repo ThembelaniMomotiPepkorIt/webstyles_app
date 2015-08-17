@@ -2,16 +2,21 @@
 var express	= require('express');
 var bodyParser = require('body-parser');
 var methodOverride  =require('method-override');
+var mongoose = require('mongoose');
+var path = require('path');
+var publicDir = path.join(__dirname,'public');
+
 var app = express();
 
 //Configurations =====================================================
 
 var port = process.env.PORT ||3000;
 
+var database = require('./config/database.js')
 //Connecting to database
-//mongoose.connect(db.url);
+mongoose.connect(database.url);
 
-//parse application/json
+//parse application/jsons
 app.use(bodyParser.json());
 
 //parse application/vnd.api+json as JSON
@@ -24,7 +29,8 @@ app.use(bodyParser.urlencoded({entended:true}));
 //Simulate DELETE/PUT
 app.use(methodOverride('X-HTTP-Method-Override'));
 
-app.use(express.static(__dirname+'/public'));
+//set the static files location //public/img will be /imgs
+app.use(express.static(publicDir));
 
 
 
